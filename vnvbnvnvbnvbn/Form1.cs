@@ -28,15 +28,37 @@ namespace vnvbnvnvbnvbn
 
         private void addbtn_Click(object sender, EventArgs e)
         {
-            sendemaildata data = new sendemaildata();
+            senddata data;
 
-            data.name = namebox.Text;
-            data.text = textbox.Text;
-            data.address = addressbox.Text;
-            data.url = urlbox.Text;
+            if (tabControl1.TabPages[tabControl1.SelectedIndex].Text == "Sprawdz strone")
+            {
+                data = new sendemaildata();
+                data.address = addressbox.Text;
+            }
+            else
+            {
+                data = new sendinfodate();
+                data.address = addressbox.Text;
+                data.city = citybox.Text;
+                data.temp = tempbox.Text;
+            }
+
+            if (tabControl2.TabPages[tabControl2.SelectedIndex].Text == "Wyslij email")
+            {
+                data.name = namebox.Text;
+                data.text = textbox.Text;
+                data.url = urlbox.Text; 
+                data.option = "email";
+            }
+            else
+            {
+                data.name = namebox.Text;
+                data.text = textbox.Text;
+                data.url = urlbox.Text;
+            }
+
 
             dbdata.jtttdata.Add(data);
-
             dbdata.SaveChanges();
             listBox1.DataSource = dbdata.jtttdata.ToList();
 
@@ -45,26 +67,16 @@ namespace vnvbnvnvbnvbn
         private void sendbtn_Click(object sender, EventArgs e)
         {
 
-            foreach(sendemaildata data in dbdata.jtttdata.ToList())
+            foreach(senddata data in dbdata.jtttdata.ToList())
             {
-                getinfo info = new getinfo(data.url,data.text);
-                string imgurl=info.PrintPageNodes();
-                if (imgurl != ":(")
-                {
-                    getimg img = new getimg();
-                    send sendmsg = new send();
-                    sendmsg.SendEmail(data.address, img.Downloadimg(imgurl));
-                }
-                
-                //data.parseSiteWithKeyword();
-
+                data.Check();
             }
 
         }
 
         private void clearbtn_Click(object sender, EventArgs e)
         {
-            foreach(sendemaildata data in listBox1.Items)
+            foreach(senddata data in listBox1.Items)
             {
                 dbdata.jtttdata.Remove(data);
             }
@@ -91,6 +103,9 @@ namespace vnvbnvnvbnvbn
             }
         }
 
-   
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -9,6 +9,6 @@ namespace vnvbnvnvbnvbn
 {
     class database : DbContext
     {
-        public DbSet<sendemaildata> jtttdata { get; set; }
+        public DbSet<senddata> jtttdata { get; set; }
     }
 }

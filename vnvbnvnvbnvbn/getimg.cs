@@ -14,7 +14,7 @@ namespace vnvbnvnvbnvbn
         public string Downloadimg(string url)
         {
             //C:\Windows\Temp\
-            string localfile = @"C:\Windows\Temp\" + Path.GetRandomFileName() + ".png";
+            string localfile = Directory.GetCurrentDirectory() + Path.GetRandomFileName() + ".png";
             new WebClient().DownloadFile(url, localfile);
             return localfile;
         }

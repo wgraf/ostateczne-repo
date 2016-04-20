@@ -45,6 +45,10 @@
       <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -76,12 +80,24 @@
     <Compile Include="Migrations\201604122350360_cokolwiek.Designer.cs">
       <DependentUpon>201604122350360_cokolwiek.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604192338274_asdasdasd.cs" />
+    <Compile Include="Migrations\201604192338274_asdasdasd.Designer.cs">
+      <DependentUpon>201604192338274_asdasdasd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604200844152_pogoda.cs" />
+    <Compile Include="Migrations\201604200844152_pogoda.Designer.cs">
+      <DependentUpon>201604200844152_pogoda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="send.cs" />
+    <Compile Include="senddata.cs" />
     <Compile Include="sendemaildata.cs" />
+    <Compile Include="sendinfodate.cs" />
+    <Compile Include="sendinfoinemail.cs" />
     <Compile Include="serialized.cs" />
+    <Compile Include="weather.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +106,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604122350360_cokolwiek.resx">
       <DependentUpon>201604122350360_cokolwiek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604192338274_asdasdasd.resx">
+      <DependentUpon>201604192338274_asdasdasd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604200844152_pogoda.resx">
+      <DependentUpon>201604200844152_pogoda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
